@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Serilog;
 
 namespace WannaWhat.Server
 {
@@ -13,7 +14,33 @@ namespace WannaWhat.Server
     {
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            //Read Configuration from appSettingsss
+            var config = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json")
+                .Build();
+
+
+
+            //Initialize Logger
+            Log.Logger = new LoggerConfiguration()
+                .ReadFrom.Configuration(config)
+                .CreateLogger();
+
+            try
+            {
+                Log.Warning("Wanna What Starting....");
+                CreateHostBuilder(args).Build().Run();
+                Log.Information("Wanna What Running.");
+
+            }
+            catch (Exception ex)
+            {
+                Log.Fatal(ex, $"Osiris Explorer failed to start. Error Message : '{ex.Message}'");
+            }
+            finally
+            {
+                Log.CloseAndFlush();
+            }
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>

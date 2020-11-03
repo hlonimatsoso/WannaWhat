@@ -26,6 +26,13 @@ namespace WannaWhat.Server.Controllers
             this.logger = logger;
         }
 
+        [AllowAnonymous]
+        [HttpGet("name/{name}")]
+        public string GetName(string name)
+        {
+            return $"Hello {name}";
+        }
+
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {

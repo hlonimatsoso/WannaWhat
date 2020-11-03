@@ -1,0 +1,90 @@
+﻿@inject NavigationManager NavigationManager
+
+<div class="container">
+    <div class="item">
+        <Animate Animation="Animations.SlideDown" Duration="TimeSpan.FromSeconds(2)">
+            <MatButton Icon="dashboard" OnClick="@OnBreedsClick" Label="Browse"></MatButton>
+        </Animate>
+    </div>
+    <div class="item">
+        <Animate Animation="Animations.SlideDown" Duration="TimeSpan.FromSeconds(2)">
+            <MatButton Icon="horizontal_split" OnClick="@OnGlossoryClick" Label="Crush"></MatButton>
+        </Animate>
+    </div>
+    <div class="item">
+        <Animate Animation="Animations.SlideDown" Duration="TimeSpan.FromSeconds(2)">
+            <MatButton Icon="horizontal_split" OnClick="@OnGlossoryClick" Label="Chat"></MatButton>
+        </Animate>
+    </div>
+    <div class="item">
+        <Animate Animation="Animations.SlideDown" Duration="TimeSpan.FromSeconds(2)">
+            <MatButton Icon="horizontal_split" OnClick="@OnGlossoryClick" Label="Quiz"></MatButton>
+        </Animate>
+    </div>
+    <div class="item">
+        <Animate Animation="Animations.SlideDown" Duration="TimeSpan.FromSeconds(2)">
+            <MatButton Icon="horizontal_split" OnClick="@OnGlossoryClick" Label="Play"></MatButton>
+        </Animate>
+    </div>
+    <div class="item">
+        <Animate Animation="Animations.SlideDown" Duration="TimeSpan.FromSeconds(2)">
+            <MatButton Icon="horizontal_split" OnClick="@OnGlossoryClick" Label="Stoko"></MatButton>
+        </Animate>
+    </div>
+    <div class="item">
+        <Animate Animation="Animations.SlideDown" Duration="TimeSpan.FromSeconds(2)">
+            <MatButton Icon="horizontal_split" OnClick="@OnGlossoryClick" Label="Date"></MatButton>
+        </Animate>
+    </div>
+    <div class="item">
+        <Animate Animation="Animations.SlideDown" Duration="TimeSpan.FromSeconds(2)">
+            <MatButton Icon="horizontal_split" OnClick="@OnGlossoryClick" Label="Bang"></MatButton>
+        </Animate>
+    </div>
+
+    @*<div class="item">
+        <Animate Animation="Animations.SlideDown" Duration="TimeSpan.FromSeconds(2)">
+            <MatButton Icon="settings_input_component" OnClick="@OnAboutClick" Label="About "></MatButton>
+        </Animate>
+    </div>*@
+</div>
+
+
+
+<style>
+    .container {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        align-content: space-around;
+    }
+
+    .item {
+        margin: 20px;
+    }
+
+    a {
+    }
+</style>
+
+@code {
+    public void OnBreedsClick()
+    {
+        NavigationManager.NavigateTo("breeds");
+    }
+
+    public void OnGlossoryClick()
+    {
+        NavigationManager.NavigateTo("glossory");
+    }
+
+    public void OnContactUsClick()
+    {
+        NavigationManager.NavigateTo("contact-us");
+    }
+
+    public void OnAboutClick()
+    {
+        NavigationManager.NavigateTo("about-us");
+    }
+}

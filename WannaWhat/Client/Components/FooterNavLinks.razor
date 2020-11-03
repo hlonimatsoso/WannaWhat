@@ -1,0 +1,76 @@
+﻿@inject IJSRuntime jsRuntime
+
+<div class="container">
+    <div class="item">
+        <Animate Animation="Animations.SlideUp" Duration="TimeSpan.FromSeconds(2)">
+            <MatButton Icon="business" OnClick="@OnLinkedInClicked" Label="Linked In"></MatButton>
+        </Animate>
+    </div>
+
+    <div class="item">
+        <Animate Animation="Animations.SlideUp" Duration="TimeSpan.FromSeconds(2)">
+            <MatButton Icon="waves" OnClick="@OnFacebookClicked" Label="Facebook"></MatButton>
+        </Animate>
+    </div>
+    <div class="item">
+        <Animate Animation="Animations.SlideUp" Duration="TimeSpan.FromSeconds(2)">
+            <MatButton Icon="videocam" OnClick="@OnYouTubeClicked" Label="Youtube"></MatButton>
+        </Animate>
+    </div>
+    <div class="item">
+        <Animate Animation="Animations.SlideUp" Duration="TimeSpan.FromSeconds(2)">
+            <MatButton Icon="image" OnClick="@OnInstagramClicked" Label="Instagram"></MatButton>
+        </Animate>
+    </div>
+
+</div>
+
+<style>
+    .container {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        align-content: space-around
+        /* display: grid;
+        grid-template-columns: auto auto auto;
+        padding: 10px;*/
+    }
+
+    .item {
+        margin-top: 15px;
+        margin-bottom: 15px;
+        /* padding: 20px;
+        font-size: 30px;
+        text-align: center;*/
+    }
+</style>
+
+@code {
+    public async Task OnLinkedInClicked()
+    {
+
+        string url = "https://www.linkedin.com/in/hloni-matsoso-93854668/";
+        await jsRuntime.InvokeAsync<object>("open", url, "_blank");
+
+
+    }
+    public async Task OnFacebookClicked()
+    {
+
+        string url = "https://www.facebook.com/hloni.matsoso";
+        await jsRuntime.InvokeAsync<object>("open", url, "_blank");
+
+    }
+
+    public async Task OnInstagramClicked()
+    {
+        string url = "https://www.instagram.com/";
+        await jsRuntime.InvokeAsync<object>("open", url, "_blank");
+    }
+
+    public async Task OnYouTubeClicked()
+    {
+        string url = "https://www.youtube.com/user/hloni2010";
+        await jsRuntime.InvokeAsync<object>("open", url, "_blank");
+    }
+}

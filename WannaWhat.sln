@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30503.244
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WannaWhat.Server", "WannaWhat\Server\WannaWhat.Server.csproj", "{F3BE08B4-20D5-48DE-A702-5A4B1E006690}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WannaWhat.Server", "WannaWhat\Server\WannaWhat.Server.csproj", "{F3BE08B4-20D5-48DE-A702-5A4B1E006690}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WannaWhat.Client", "WannaWhat\Client\WannaWhat.Client.csproj", "{8F0B0524-171E-439D-AC1F-2B34229ACFBE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WannaWhat.Client", "WannaWhat\Client\WannaWhat.Client.csproj", "{8F0B0524-171E-439D-AC1F-2B34229ACFBE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WannaWhat.Shared", "WannaWhat\Shared\WannaWhat.Shared.csproj", "{6C78E78B-89DB-4011-ADAC-2F2409BA212A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WannaWhat.Shared", "WannaWhat\Shared\WannaWhat.Shared.csproj", "{6C78E78B-89DB-4011-ADAC-2F2409BA212A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

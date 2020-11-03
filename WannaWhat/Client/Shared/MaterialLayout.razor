@@ -1,0 +1,114 @@
+﻿@inherits LayoutComponentBase
+@inject NavigationManager NaviMan
+
+
+
+<MatAppBarContainer Id="content">
+    <MatAppBar>
+        <MatAppBarRow>
+            <MatAppBarSection>
+                <p>
+                    <MatIconButton Icon="menu" @ref="OpenMenuButton" OnClick="OnOpenMenu"></MatIconButton>
+
+                    <MatMenu @ref="Menu">
+                        <MatList>
+                            <MatListItem><MatButton Icon="home" OnClick="@(()=>{ NaviMan.NavigateTo(""); })">Home</MatButton></MatListItem>
+                            <MatListItem><MatButton Icon="dashboard" OnClick="@(()=>{ NaviMan.NavigateTo("browse"); })">Browse</MatButton></MatListItem>
+                            <MatListItem><MatButton Icon="horizontal_split" OnClick="@(()=>{ NaviMan.NavigateTo("crush"); })">Crush</MatButton></MatListItem>
+                            <MatListItem><MatButton Icon="horizontal_split" OnClick="@(()=>{ NaviMan.NavigateTo("chat"); })">Chat</MatButton></MatListItem>
+                            <MatListItem><MatButton Icon="horizontal_split" OnClick="@(()=>{ NaviMan.NavigateTo("quiz"); })">Quiz</MatButton></MatListItem>
+                            <MatListItem><MatButton Icon="horizontal_split" OnClick="@(()=>{ NaviMan.NavigateTo("play"); })">Play</MatButton></MatListItem>
+                            <MatListItem><MatButton Icon="horizontal_split" OnClick="@(()=>{ NaviMan.NavigateTo("stoko"); })">Stoko</MatButton></MatListItem>
+                            <MatListItem><MatButton Icon="horizontal_split" OnClick="@(()=>{ NaviMan.NavigateTo("date"); })">Date</MatButton></MatListItem>
+                            <MatListItem><MatButton Icon="horizontal_split" OnClick="@(()=>{ NaviMan.NavigateTo("bang"); })">Bang</MatButton></MatListItem>
+                            <MatListItem><MatButton Icon="feedback" OnClick="@(()=>{ NaviMan.NavigateTo("contact-us"); })">Contact Us</MatButton></MatListItem>
+                            <MatListItem><MatButton Icon="settings_input_component" OnClick="@(()=>{ NaviMan.NavigateTo("about-us"); })">About Us</MatButton></MatListItem>
+                        </MatList>
+                    </MatMenu>
+                </p>
+                <MatAppBarTitle>
+                    <Animate Animation="Animations.ZoomInUp" Duration="TimeSpan.FromSeconds(2.5)">
+                        <div class="app-bar-container">
+                            <div class="app-bar-item">
+                                <NavLink href="" Match="NavLinkMatch.All">
+                                    <span class="oi oi-home" aria-hidden="true"></span> Wanna What ?...
+                                </NavLink>
+                            </div>
+                        </div>
+                    </Animate>
+
+                </MatAppBarTitle>
+            </MatAppBarSection>
+            <MatAppBarSection Align="@MatAppBarSectionAlign.End">
+                <div class="app-bar-item">
+                    <NavLink href="contact-us" Match="NavLinkMatch.All">
+                        <span class="oi oi-home" aria-hidden="true"></span> Contact Us
+                    </NavLink>
+                </div>
+                <div class="spacer"></div>
+                <div class="app-bar-item">
+                    <NavLink href="about-us" Match="NavLinkMatch.All">
+                        <span class="oi oi-home" aria-hidden="true"></span> About Wanna What
+                    </NavLink>
+                </div>
+                <MatIconButton Icon="favorite"></MatIconButton>
+            </MatAppBarSection>
+        </MatAppBarRow>
+    </MatAppBar>
+
+    <MatAppBarContent>
+        <div class="content">
+
+            <MainNavLinks></MainNavLinks>
+            <MatProgressBar Indeterminate="true" Closed="false"></MatProgressBar>
+            @Body
+            <FooterNavLinks></FooterNavLinks>
+
+        </div>
+    </MatAppBarContent>
+</MatAppBarContainer>
+
+<style>
+    #content {
+        display: block;
+        width: 100%;
+    }
+
+    .app-bar-container {
+        align-items: center;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+    }
+
+    .app-bar-item {
+        margin-right: 30px;
+    }
+
+
+    .spacer {
+        /*width:50%;*/
+    }
+
+    a {
+        color: white;
+    }
+</style>
+
+
+@code{
+
+    protected override Task OnInitializedAsync()
+    {
+
+        return base.OnInitializedAsync();
+    }
+
+    BaseMatIconButton OpenMenuButton;
+    BaseMatMenu Menu;
+
+    public void OnOpenMenu(MouseEventArgs e)
+    {
+        this.Menu.OpenAsync(OpenMenuButton.Ref);
+    }
+}
