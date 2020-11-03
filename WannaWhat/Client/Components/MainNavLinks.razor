@@ -3,42 +3,42 @@
 <div class="container">
     <div class="item">
         <Animate Animation="Animations.SlideDown" Duration="TimeSpan.FromSeconds(2)">
-            <MatButton Icon="dashboard" OnClick="@OnBreedsClick" Label="Browse"></MatButton>
+            <MatButton Icon="dashboard" OnClick="@OnBowseClick" Label="Browse"></MatButton>
         </Animate>
     </div>
     <div class="item">
         <Animate Animation="Animations.SlideDown" Duration="TimeSpan.FromSeconds(2)">
-            <MatButton Icon="horizontal_split" OnClick="@OnGlossoryClick" Label="Crush"></MatButton>
+            <MatButton Icon="horizontal_split" OnClick="@OnCrushClick" Label="Crush"></MatButton>
         </Animate>
     </div>
     <div class="item">
         <Animate Animation="Animations.SlideDown" Duration="TimeSpan.FromSeconds(2)">
-            <MatButton Icon="horizontal_split" OnClick="@OnGlossoryClick" Label="Chat"></MatButton>
+            <MatButton Icon="horizontal_split" OnClick="@OnChatClick" Label="Chat"></MatButton>
         </Animate>
     </div>
     <div class="item">
         <Animate Animation="Animations.SlideDown" Duration="TimeSpan.FromSeconds(2)">
-            <MatButton Icon="horizontal_split" OnClick="@OnGlossoryClick" Label="Quiz"></MatButton>
+            <MatButton Icon="horizontal_split" OnClick="@OnQuizClick" Label="Quiz"></MatButton>
         </Animate>
     </div>
     <div class="item">
         <Animate Animation="Animations.SlideDown" Duration="TimeSpan.FromSeconds(2)">
-            <MatButton Icon="horizontal_split" OnClick="@OnGlossoryClick" Label="Play"></MatButton>
+            <MatButton Icon="horizontal_split" OnClick="@OnPlayClick" Label="Play"></MatButton>
         </Animate>
     </div>
     <div class="item">
         <Animate Animation="Animations.SlideDown" Duration="TimeSpan.FromSeconds(2)">
-            <MatButton Icon="horizontal_split" OnClick="@OnGlossoryClick" Label="Stoko"></MatButton>
+            <MatButton Icon="horizontal_split" OnClick="@OnStokoClick" Label="Stoko"></MatButton>
         </Animate>
     </div>
     <div class="item">
         <Animate Animation="Animations.SlideDown" Duration="TimeSpan.FromSeconds(2)">
-            <MatButton Icon="horizontal_split" OnClick="@OnGlossoryClick" Label="Date"></MatButton>
+            <MatButton Icon="horizontal_split" OnClick="@OnDateClick" Label="Date"></MatButton>
         </Animate>
     </div>
     <div class="item">
         <Animate Animation="Animations.SlideDown" Duration="TimeSpan.FromSeconds(2)">
-            <MatButton Icon="horizontal_split" OnClick="@OnGlossoryClick" Label="Bang"></MatButton>
+            <MatButton Icon="horizontal_split" OnClick="@OnBangClick" Label="Bang"></MatButton>
         </Animate>
     </div>
 
@@ -68,14 +68,38 @@
 </style>
 
 @code {
-    public void OnBreedsClick()
+    public void OnBowseClick()
     {
-        NavigationManager.NavigateTo("breeds");
+        NavigationManager.NavigateTo("browse");
+    }
+    public void OnCrushClick()
+    {
+        NavigationManager.NavigateTo("crush");
     }
 
-    public void OnGlossoryClick()
+    public void OnChatClick()
     {
-        NavigationManager.NavigateTo("glossory");
+        NavigationManager.NavigateTo("chat");
+    }
+    public void OnQuizClick()
+    {
+        NavigationManager.NavigateTo("quiz");
+    }
+    public void OnPlayClick()
+    {
+        NavigationManager.NavigateTo("play");
+    }
+    public void OnStokoClick()
+    {
+        NavigationManager.NavigateTo("stoko");
+    }
+    public void OnDateClick()
+    {
+        NavigationManager.NavigateTo("date");
+    }
+    public void OnBangClick()
+    {
+        NavigationManager.NavigateTo("bang");
     }
 
     public void OnContactUsClick()

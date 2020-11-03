@@ -25,4 +25,13 @@
     <ServiceWorker Include="wwwroot\service-worker.js" PublishedContent="wwwroot\service-worker.published.js" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="Pages\Index - Copy - Copy.razor.cs">
+      <DependentUpon>Index - Copy.razor.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Index - Copy.razor.cs">
+      <DependentUpon>Index.razor.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
 </Project>
