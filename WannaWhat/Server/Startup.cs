@@ -13,6 +13,7 @@ using Microsoft.Extensions.Hosting;
 using System.Linq;
 using WannaWhat.Server.Data;
 using WannaWhat.Server.Models;
+using WannaWhat.Shared.Models;
 
 namespace WannaWhat.Server
 {
@@ -29,15 +30,15 @@ namespace WannaWhat.Server
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ApplicationDbContext>(options =>
+            services.AddDbContext<WannaWhatDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddDefaultIdentity<WannaWhatUser>(options => options.SignIn.RequireConfirmedAccount = false)
+                .AddEntityFrameworkStores<WannaWhatDbContext>();
 
             services.AddIdentityServer()
-                .AddApiAuthorization<ApplicationUser, ApplicationDbContext>();
+                .AddApiAuthorization<WannaWhatUser, WannaWhatDbContext>();
 
             services.AddAuthentication()
                 .AddIdentityServerJwt();
