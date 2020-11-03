@@ -78,6 +78,8 @@ namespace WannaWhat.Server
                 endpoints.MapControllers();
                 endpoints.MapFallbackToFile("index.html");
             });
+
+            //app.CreatePerOwinContext<ApplicationSignInManager>(ApplicationSignInManager.Create);
         }
     }
 }

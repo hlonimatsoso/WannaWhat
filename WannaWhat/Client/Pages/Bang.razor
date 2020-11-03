@@ -1,5 +1,7 @@
 ﻿@inherits BangBase
 @page "/bang"
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
 
 
 <Animate Animation="Animations.FadeIn" Duration="TimeSpan.FromSeconds(2)">
