@@ -10,15 +10,25 @@
         <button class="nav-link btn btn-link" @onclick="BeginSignOut">Log out</button>
     </Authorized>
     <NotAuthorized>
-        <a href="authentication/register">Register</a>
-        <a href="authentication/login">Log in</a>
+        <a href="Identity/Account/register">Register</a>
+        <a href="Identity/Account/login">Log in</a>
     </NotAuthorized>
 </AuthorizeView>
+
+<style>
+    a{
+        margin:15px;
+    }
+</style>
 
 @code{
     private async Task BeginSignOut(MouseEventArgs args)
     {
+        Console.WriteLine("Signing out");
         await SignOutManager.SetSignOutState();
         Navigation.NavigateTo("authentication/logout");
+        //Navigation.NavigateTo("/");
+        Console.WriteLine("Signed out...");
+
     }
 }

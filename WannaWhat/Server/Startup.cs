@@ -56,8 +56,8 @@ namespace WannaWhat.Server
                 options.Events.RaiseInformationEvents = true;
                 options.Events.RaiseFailureEvents = true;
                 options.Events.RaiseSuccessEvents = true;
-                options.UserInteraction.LoginUrl = "/Account/Login";
-                options.UserInteraction.LogoutUrl = "/Account/Logout";
+                options.UserInteraction.LoginUrl = "Identity/Account/Login";
+                options.UserInteraction.LogoutUrl = "Identity/Account/Logout";
                 options.Authentication = new IdentityServer4.Configuration.AuthenticationOptions()
                 {
                     CookieLifetime = TimeSpan.FromHours(10), // ID server cookie timeout set to 10 hours
