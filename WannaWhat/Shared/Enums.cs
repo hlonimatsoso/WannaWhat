@@ -13,4 +13,9 @@ namespace WannaWhat.Shared
     {
         None, Black, DarkBrown, LightBrown, Hazel, Blue, Green, Other 
     }
+
+    public enum HairColor
+    {
+        None, Black, DarkBrown, LightBrown, Ginger, Red, Orange, Other
+    }
 }
