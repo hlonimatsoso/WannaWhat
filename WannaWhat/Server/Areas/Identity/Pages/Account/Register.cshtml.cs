@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
-using WannaWhat.Server.Models;
+using WannaWhat.Server.Interfaces;
 using WannaWhat.Shared.Models;
 
 namespace WannaWhat.Server.Areas.Identity.Pages.Account
@@ -25,17 +25,21 @@ namespace WannaWhat.Server.Areas.Identity.Pages.Account
         private readonly UserManager<WannaWhatUser> _userManager;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
+        private readonly IRegistrationHelper _regHelper;
+
 
         public RegisterModel(
             UserManager<WannaWhatUser> userManager,
             SignInManager<WannaWhatUser> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender,
+            IRegistrationHelper regHlper)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            _regHelper = regHlper;
         }
 
         [BindProperty]
@@ -62,6 +66,13 @@ namespace WannaWhat.Server.Areas.Identity.Pages.Account
             [Display(Name = "Confirm password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
+
+            [Required(ErrorMessage ="Gender is required")]
+            public char Gender { get; set; }
+
+            [Required(ErrorMessage = "Date of birth is required")]
+            [DataType(DataType.Date)]
+            public DateTime DOB { get; set; }
         }
 
         public async Task OnGetAsync(string returnUrl = null)
@@ -81,6 +92,13 @@ namespace WannaWhat.Server.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
+
+                    UserInfo info = new UserInfo();
+                    info.DOB = Input.DOB;
+                    info.UserId = user.Id;
+                    info.Gender = Input.Gender;
+
+                    _regHelper.InsertUser(info);
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));

@@ -14,10 +14,11 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Linq;
 using WannaWhat.Server.Data;
-using WannaWhat.Server.Models;
 using WannaWhat.Shared.Models;
 using System.Reflection;
 using System;
+using WannaWhat.Server.Interfaces;
+using WannaWhat.Server.Services;
 
 namespace WannaWhat.Server
 {
@@ -99,6 +100,8 @@ namespace WannaWhat.Server
 
             services.AddControllersWithViews();
             services.AddRazorPages();
+
+            services.AddScoped<IRegistrationHelper, RegistrationService>();
 
             //services.AddServerSideBlazor();
         }

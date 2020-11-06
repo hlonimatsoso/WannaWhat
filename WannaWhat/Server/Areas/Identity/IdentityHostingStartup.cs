@@ -6,7 +6,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using WannaWhat.Server.Data;
-using WannaWhat.Server.Models;
 
 [assembly: HostingStartup(typeof(WannaWhat.Server.Areas.Identity.IdentityHostingStartup))]
 namespace WannaWhat.Server.Areas.Identity

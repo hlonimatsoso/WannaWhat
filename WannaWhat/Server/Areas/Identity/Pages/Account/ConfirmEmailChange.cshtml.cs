@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
-using WannaWhat.Server.Models;
 using WannaWhat.Shared.Models;
 
 namespace WannaWhat.Server.Areas.Identity.Pages.Account

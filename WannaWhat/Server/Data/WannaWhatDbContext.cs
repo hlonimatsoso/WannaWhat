@@ -16,9 +16,12 @@ namespace WannaWhat.Server.Data
         {
         }
 
-        public DbSet<UserInterest> UserInterests { get; set; }
+        public DbSet<UserInfo> UserInfo { get; set; }
 
         public DbSet<UserPersonality> UserPersonalities { get; set; }
+
+        public DbSet<UserInterest> UserInterests { get; set; }
+
 
 
         protected override void OnModelCreating(ModelBuilder builder)

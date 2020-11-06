@@ -11,7 +11,6 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
-using WannaWhat.Server.Models;
 using WannaWhat.Shared.Models;
 
 namespace WannaWhat.Server.Areas.Identity.Pages.Account
