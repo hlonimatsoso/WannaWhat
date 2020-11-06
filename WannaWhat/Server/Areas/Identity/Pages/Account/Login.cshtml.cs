@@ -81,6 +81,11 @@ namespace WannaWhat.Server.Areas.Identity.Pages.Account
                 // This doesn't count login failures towards account lockout
                 // To enable password failures to trigger account lockout, set lockoutOnFailure: true
                 var user = await _userManager.FindByEmailAsync(Input.Email);
+                if(user == null)
+                {
+                    ModelState.AddModelError(string.Empty, $"User name '{Input.Email}' not found.");
+                    return Page();
+                }
                 var result4 = await _userManager.CheckPasswordAsync(user, Input.Password);
                 var result = await _signInManager.PasswordSignInAsync(user.UserName, Input.Password, Input.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)

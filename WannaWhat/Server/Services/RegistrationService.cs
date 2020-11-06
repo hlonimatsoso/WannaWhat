@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
@@ -28,7 +29,10 @@ namespace WannaWhat.Server.Services
 
         public UserInfo GetUserInfo(string id)
         {
-            return DbContext.UserInfo.Where(x=>x.UserId.Equals(id,StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
+            UserInfo result = null;
+            if (DbContext.UserInfo.Count() > 0)
+                result = DbContext.UserInfo.First();
+            return result;
         }
     }
 }

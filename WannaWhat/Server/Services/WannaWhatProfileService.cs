@@ -30,7 +30,7 @@ namespace WannaWhat.Server.Services
             var sub = context.Subject.Identity.GetSubjectId();
             var user = await _userManager.FindByIdAsync(sub);
             var principal = await _claimsFactory.CreateAsync(user);
-            var userInfo = _regHelper.GetUserInfo(sub);
+            var userInfo = _regHelper.GetUserInfo(user.Id);
 
             var claims = principal.Claims.ToList();
             claims = claims.Where(claim => context.RequestedClaimTypes.Contains(claim.Type)).ToList();
