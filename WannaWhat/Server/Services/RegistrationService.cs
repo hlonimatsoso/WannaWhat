@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using WannaWhat.Server.Data;
 using WannaWhat.Server.Interfaces;
@@ -23,6 +24,11 @@ namespace WannaWhat.Server.Services
         {
             DbContext.UserInfo.Add(info);
             DbContext.SaveChanges();
+        }
+
+        public UserInfo GetUserInfo(string id)
+        {
+            return DbContext.UserInfo.Where(x=>x.UserId.Equals(id,StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
         }
     }
 }

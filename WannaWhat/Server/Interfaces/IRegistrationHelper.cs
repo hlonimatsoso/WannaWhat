@@ -9,5 +9,6 @@ namespace WannaWhat.Server.Interfaces
     public interface IRegistrationHelper
     {
         void InsertUser(UserInfo info);
+        UserInfo GetUserInfo(string id);
     }
 }

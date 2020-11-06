@@ -19,6 +19,7 @@ using System.Reflection;
 using System;
 using WannaWhat.Server.Interfaces;
 using WannaWhat.Server.Services;
+using IdentityServer4.Services;
 
 namespace WannaWhat.Server
 {
@@ -102,6 +103,8 @@ namespace WannaWhat.Server
             services.AddRazorPages();
 
             services.AddScoped<IRegistrationHelper, RegistrationService>();
+            services.AddScoped<IProfileService, WannaWhatProfileService>();
+
 
             //services.AddServerSideBlazor();
         }
