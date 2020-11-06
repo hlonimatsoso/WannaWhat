@@ -1,8 +1,8 @@
 ﻿@using Microsoft.AspNetCore.Identity
-@using WannaWhat.Server.Models
+@using WannaWhat.Shared.Models
 
-@inject SignInManager<ApplicationUser> SignInManager
-@inject UserManager<ApplicationUser> UserManager
+@inject SignInManager<WannaWhatUser> SignInManager
+@inject UserManager<WannaWhatUser> UserManager
 
 <ul class="navbar-nav">
 @if (SignInManager.IsSignedIn(User))

@@ -1,7 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Identity
-@using WannaWhat.Server.Models
-@inject SignInManager<ApplicationUser> SignInManager
-@inject UserManager<ApplicationUser> UserManager
+@using WannaWhat.Shared.Models
+@inject SignInManager<WannaWhatUser> SignInManager
+@inject UserManager<WannaWhatUser> UserManager
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
 @{

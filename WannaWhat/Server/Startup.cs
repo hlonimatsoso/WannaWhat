@@ -79,10 +79,28 @@ namespace WannaWhat.Server
             builder.AddDeveloperSigningCredential();
 
             services.AddAuthentication()
-                .AddIdentityServerJwt();
+                .AddIdentityServerJwt()
+                .AddGoogle(options =>
+                {
+                    options.ClientId = "923984788102-5co1eqq3ehl6ju5qss1pp0jjg9vjao8v.apps.googleusercontent.com";
+                    options.ClientSecret = "A5JU6Ms43lpAsGjProvR3s9G";
+
+                }).AddFacebook(options =>
+                {
+                    options.ClientId = "sadddad";
+                    options.ClientSecret = "asdsd";
+
+                }).AddTwitter(options =>
+                {
+                    options.ConsumerKey = "sadddad";
+                    options.ConsumerSecret = "asdsd";
+
+                });
 
             services.AddControllersWithViews();
             services.AddRazorPages();
+
+            //services.AddServerSideBlazor();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -97,7 +115,7 @@ namespace WannaWhat.Server
             else
             {
                 app.UseExceptionHandler("/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+                // The default HSTS value is 30 days.  You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
 
@@ -113,9 +131,12 @@ namespace WannaWhat.Server
 
             app.UseEndpoints(endpoints =>
             {
+                //endpoints.MapBlazorHub();
                 endpoints.MapRazorPages();
                 endpoints.MapControllers();
                 endpoints.MapFallbackToFile("index.html");
+                //endpoints.MapFallbackToFile("/_Host");
+
             });
 
             //app.CreatePerOwinContext<ApplicationSignInManager>(ApplicationSignInManager.Create);

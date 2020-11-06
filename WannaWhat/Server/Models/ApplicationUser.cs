@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WannaWhat.Server.Models
 {
-    public class ApplicationUser : IdentityUser
-    {
-    }
+    //public class WannaWhatUser : IdentityUser
+    //{
+    //}
 }
